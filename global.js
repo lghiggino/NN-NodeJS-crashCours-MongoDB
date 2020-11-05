@@ -1,11 +1,11 @@
 console.log("global.js is being run");
 
-//console.log(global);
+console.log(global);
 
 // setTimeout(() => {
 //     console.log("in the timeout")
 //     clearInterval(int)
-// }, 14000);
+// }, 16000);
 
 // let count = 1
 // const int = setInterval(() => {
