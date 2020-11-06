@@ -1,7 +1,7 @@
 /* ============== NODE CRUD Operations on the file system ============== */
 const fs = require("fs");
 
-/* ===== reading files - readFile("relativePathToFile", asyncFunction()) ===== */
+/* ===== READING files - readFile("relativePathToFile", callback(error, data) ===== */
 // fs.readFile("./docs/readme.txt", (err, data) => {
 //     if (err){
 //         console.log(err)
@@ -10,7 +10,9 @@ const fs = require("fs");
 //     console.log(data.toString());
 // })
 
-/* ===== writing files - writeFIle("relativePathToCreateFile", "the text content of the file", asyncFunction()) ===== */
+/* ===== WRITING FILES - writeFile("relativePathToCreateFile", "the text content of the file", callback()) ===== 
+This will also edit an existing file on the same file path                                                       */
+
 // fs.writeFile("./docs/newFile.txt", "hello, world!", () => {
 //     console.log("new file was written");
 // });
@@ -28,6 +30,7 @@ let htmlContent = `
 </head>
 <body>
     <h1>This is a brand new fucking world</h1>
+    
 </body>
 </html>
 `
@@ -35,3 +38,13 @@ fs.writeFile("./docs/banana.html", htmlContent, () => {
     console.log("new html file created")
 })
 
+/* ===== MAKING DIRECTORY - mkdir("pathToNewDirectory", callback(error))  ===== 
+Will throw error if creates anexisting directory                                */
+
+fs.mkdir("./assests", (err) => {
+    if(err){
+        console.log(err)
+    }else{
+        console.log("new directory was created")
+    }
+})
