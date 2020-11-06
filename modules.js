@@ -1,21 +1,17 @@
-/*const xyz = require("./people");
+//const xyz = require("./people");
+//console.log(xyz)
+// xyz.people.forEach(_p => {
+//     console.log(_p)
+// })
 
-xyz.people.forEach(_p => {
-    console.log(_p)
-}) */
+// const {people,ages, cities} = require("./people");
 
-// destructuring assingments on the import
-const {cities, people, ages} = require("./people");
-console.log(cities)
-
-cities.forEach(city => {
-    console.log(city)
-})
-
-console.log(people)
-console.log(ages)
+// console.log(cities);
+// console.log(people);
+// console.log(ages);
 
 
-// One of node built in modules
+// NODE OS Module
 const os = require("os")
 console.log(os.platform(), os.homedir())
+
