@@ -32,6 +32,7 @@ let htmlContent = `
     <section>
         <h1>This is a brand new fucking world</h1>
         <p> this is a paragraph created using node and javascript </p>
+        <span> cool, cool! </span>
     </section>
     
 </body>
@@ -63,9 +64,18 @@ Will throw error if creates anexisting directory                                
 // }
 
 /* ===== DELETE FILE - unlink("pathToFile/fileName.html", callback(error)) ===== */
-if (fs.existsSync("./docs/deleteme.txt")){
-    fs.unlink("./docs/deleteme.txt", (error) => {
-        if(error){console.log(error)}
-        else {console.log("File was deleted")}
-    })
-}
+// if (fs.existsSync("./docs/deleteme.txt")){
+//     fs.unlink("./docs/deleteme.txt", (error) => {
+//         if(error){console.log(error)}
+//         else {console.log("File was deleted")}
+//     })
+// }
+
+
+fs.readFile("./docs/readme.txt", (error, data) => {
+    if(error){
+        console.log(error)
+    }else{
+        console.log(data)
+    }
+})
