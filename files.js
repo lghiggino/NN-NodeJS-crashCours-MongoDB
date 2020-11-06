@@ -1,7 +1,7 @@
 /* ============== NODE CRUD Operations on the file system ============== */
 const fs = require("fs");
 
-/* ===== READING files - readFile("relativePathToFile", callback(error, data) ===== */
+/* ===== READING FILES - readFile("relativePathToFile", callback(error, data) ===== */
 // fs.readFile("./docs/readme.txt", (err, data) => {
 //     if (err){
 //         console.log(err)
@@ -29,7 +29,10 @@ let htmlContent = `
     <script src='main.js'></script> -->
 </head>
 <body>
-    <h1>This is a brand new fucking world</h1>
+    <section>
+        <h1>This is a brand new fucking world</h1>
+        <p> this is a paragraph created using node and javascript </p>
+    </section>
     
 </body>
 </html>
@@ -41,10 +44,28 @@ fs.writeFile("./docs/banana.html", htmlContent, () => {
 /* ===== MAKING DIRECTORY - mkdir("pathToNewDirectory", callback(error))  ===== 
 Will throw error if creates anexisting directory                                */
 
-fs.mkdir("./assests", (err) => {
-    if(err){
-        console.log(err)
-    }else{
-        console.log("new directory was created")
-    }
-})
+// if (!fs.existsSync("./assets")){
+//     fs.mkdir("./assets", (err) => {
+//         if(err){
+//             console.log(err)
+//         }else{
+//             console.log("new directory was created")
+//         }
+//     })
+// } else {  /* ===== REMOVING DIRECTORY - rmdir("pathToDirectory", callback(error)) ===== */
+//     fs.rmdir("./assets", (err) => {
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log("folder deleted");
+//         }
+//     })
+// }
+
+/* ===== DELETE FILE - unlink("pathToFile/fileName.html", callback(error)) ===== */
+if (fs.existsSync("./docs/deleteme.txt")){
+    fs.unlink("./docs/deleteme.txt", (error) => {
+        if(error){console.log(error)}
+        else {console.log("File was deleted")}
+    })
+}
