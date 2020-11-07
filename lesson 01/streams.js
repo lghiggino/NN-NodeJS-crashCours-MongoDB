@@ -59,3 +59,6 @@ let html = `
 const newWriteStream = fs.createWriteStream("index.html")
 
 newWriteStream.write(html)
+
+//piping
+
