@@ -72,10 +72,13 @@ Will throw error if creates anexisting directory                                
 // }
 
 
-fs.readFile("./docs/readme.txt", (error, data) => {
-    if(error){
-        console.log(error)
-    }else{
-        console.log(data)
-    }
-})
+// fs.readFile("./docs/readme.txt", (error, data) => {
+//     if(error){
+//         console.log(error)
+//     }else{
+//         console.log(data)
+//     }
+// })
+
+module.exports = htmlContent;
+
