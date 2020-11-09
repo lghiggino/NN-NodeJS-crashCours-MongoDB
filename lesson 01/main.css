@@ -13,9 +13,18 @@
 .colored{
     margin: auto;
     width: 50%;
-    border: 1px solid green;
+    border: 5px solid green;
 }
 
 .colored > p{
     text-align: center;
+}
+
+
+.right{
+    display: inline-block;
+    
+    width: 200px;
+    height: auto;
+    
 }
