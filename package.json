@@ -1,0 +1,26 @@
+{
+  "name": "nn-rest_node_and_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lghiggino/NN-NodeJS-crashCours-MongoDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lghiggino/NN-NodeJS-crashCours-MongoDB/issues"
+  },
+  "homepage": "https://github.com/lghiggino/NN-NodeJS-crashCours-MongoDB#readme",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}

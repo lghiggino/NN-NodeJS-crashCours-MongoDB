@@ -1,9 +1,20 @@
 const http = require("http");
 const fs = require("fs");
-const { endianness } = require("os");
+const _ = require("lodash");
+
 
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+    
+    //lodash
+    const num = _.random(0,20);
+    console.log(num)
+
+    const greet = _.once(() => {
+        console.log("hello");
+    });
+
+    greet()
+    greet()
 
     //set header content type
     res.setHeader("Content-type", "text/html")
@@ -22,7 +33,7 @@ const server = http.createServer((req, res) => {
             res.statusCode = 200;
             break;
         //create a redirect
-        case("/aboutme"):
+        case("/about-me"):
             res.statusCode = 301;
             res.setHeader("Location", "/about");
             res.end();
