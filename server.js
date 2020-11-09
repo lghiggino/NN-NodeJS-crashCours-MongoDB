@@ -13,13 +13,23 @@ const server = http.createServer((req, res) => {
     //create a switch to respond
     switch(req.url){
         case("/"): 
-            path += "index.html"
+            path += "index.html";
+            //set a statusCode
+            res.statusCode = 200;
             break;
         case("/about"):
             path += "about.html"
+            res.statusCode = 200;
+            break;
+        //create a redirect
+        case("/aboutme"):
+            res.statusCode = 301;
+            res.setHeader("Location", "/about");
+            res.end();
             break;
         default:
             path += "404.html"
+            res.statusCode = 404;
     }
     //read the file
     fs.readFile(path, (err, data) => {
@@ -32,7 +42,6 @@ const server = http.createServer((req, res) => {
             res.end();
         }
     })
-    
 });
 
 server.listen(3000, "localhost", () => {
