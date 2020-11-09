@@ -1,0 +1,21 @@
+.second {
+    border: 1px solid black;
+    height: 400px;
+}
+
+.single{
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    transform: translate (-50%, -50%);
+}
+
+.colored{
+    margin: auto;
+    width: 50%;
+    border: 1px solid green;
+}
+
+.colored > p{
+    text-align: center;
+}
