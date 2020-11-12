@@ -3,6 +3,10 @@ const express = require("express");
 //express app
 const app = express();
 
+//register the view engine
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 //listen for requests
 app.listen(3000);
 
@@ -26,7 +30,7 @@ app.listen(3000);
 app.use( (req, res) => {
     switch(req.url){
         case("/"):
-            res.sendFile("./views/index.html", {root: __dirname});
+            res.sendFile("./views/index.ejs", {root: __dirname});
             break;
         case("/about"):
             res.sendFile("./views/about.html", {root: __dirname});
