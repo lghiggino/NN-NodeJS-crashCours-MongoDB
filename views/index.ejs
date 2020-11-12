@@ -23,16 +23,16 @@
 
     <section class="blogs content">
         <h2>All Blogs</h2>
-        <article>
-            <h4 class="title">blog post title</h4>
-            <h5><%=time%></h5>
-            <p class="blog-post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. In rem at vitae quae ad, quo, facilis delectus tempore illum eius, praesentium recusandae blanditiis dolorem necessitatibus dolores! Omnis laboriosam ipsam animi est officia rem. Minima voluptate autem magni mollitia eveniet fuga nostrum, aut, assumenda necessitatibus molestias voluptates fugiat odio in porro.</p>
-        </article>
 
-        <article>
-            <h4 class="title">blog post title</h4>
-            <p class="blog-post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. In rem at vitae quae ad, quo, facilis delectus tempore illum eius, praesentium recusandae blanditiis dolorem necessitatibus dolores! Omnis laboriosam ipsam animi est officia rem. Minima voluptate autem magni mollitia eveniet fuga nostrum, aut, assumenda necessitatibus molestias voluptates fugiat odio in porro.</p>
-        </article>
+        <% if(blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>
+               <article>
+                   <h3 class="title"><%= blog.title %></h3>
+                   <h5 class="date"><%=time%></h5>
+                   <p class="snippet"><%= blog.snippet %></p>
+               </article>
+            <% }) %>
+        <% } %>
     </section>
 </body>
 </html>
