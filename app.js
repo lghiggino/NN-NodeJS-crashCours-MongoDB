@@ -35,9 +35,11 @@ app.use( (req, res) => {
         case("/about"):
             res.render("about");
             break;
-        case("aboutme"):
-            res.redirect("about")
-            break;
+        // case("aboutme"):
+        //     res.redirect("about")
+        //     break;
+        case("/blogs/create"):
+            res.render("create")
         default:
             res.status(404).render("404");
     }
