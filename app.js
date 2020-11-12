@@ -30,10 +30,10 @@ app.listen(3000);
 app.use( (req, res) => {
     switch(req.url){
         case("/"):
-            res.sendFile("./views/index.ejs", {root: __dirname});
+            res.render("index");
             break;
         case("/about"):
-            res.sendFile("./views/about.html", {root: __dirname});
+            res.render("about");
             break;
         case("aboutme"):
             res.redirect("about")
