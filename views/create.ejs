@@ -9,17 +9,8 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <nav>
-        <div class="site-title">
-            <a href="/"><h1>Blog Ninja</h1></a>
-            <p>A Net Ninja Site with LNG</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
+    <!-- NAV.EJS -->
+    <%- include("./partials/nav.ejs") %>
 
     <section class="create-blog content">
         <form action="">

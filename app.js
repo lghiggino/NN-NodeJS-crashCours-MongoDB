@@ -25,16 +25,28 @@ app.listen(3000);
 // app.get("aboutme", (req, res) => {
 //     res.redirect("about")
 // })
+// //404
+// //res.status(404).sendFile("./views/404.html", {root: __dirname});
+/* RES.RENDER usando app.get
 
-//404 page
+app.get("/", (req, res) => {
+    const data = [
+        {title: "blablablabla", snippet:"lorem20", blogContent:"lorem100"},
+        {title: "fasfasfasfas", snippet:"lorem20", blogContent:"lorem100"},
+        {title: "gjhghjghjghj", snippet:"lorem20", blogContent:"lorem100"},
+    ];
+    res.render("index", {data, moreData: "this is more separate data"})
+})*/
+
+//APP.USE + SWITCH TO CONTROL THE REQUESTS/RESPONSES
 app.use( (req, res) => {
     switch(req.url){
         case("/"):
-            const blogs = [
-                {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi..."},
-                {title: "Mario finds stars", snippet: "First of all, start your console..."},
-                {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
-            ];
+        const blogs = [
+            {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi..."},
+            {title: "Mario finds stars", snippet: "First of all, start your console..."},
+            {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
+        ];
             res.render("index", {title: "Home", time: new Date, blogs});
             break;
         case("/about"):
@@ -50,5 +62,5 @@ app.use( (req, res) => {
     }
 })
 
-    //res.status(404).sendFile("./views/404.html", {root: __dirname});
+
 
