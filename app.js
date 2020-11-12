@@ -10,7 +10,7 @@ app.set("views", "views");
 //listen for requests
 app.listen(3000);
 
-//responding the get requests
+//responding the get requests - vanilla express here
 // app.get("/", (req, res) => {
 //     //express response send method - auto setHeader and statusCode
 //     res.sendFile("./views/index.html", {root: __dirname});
@@ -30,18 +30,18 @@ app.listen(3000);
 app.use( (req, res) => {
     switch(req.url){
         case("/"):
-            res.render("index");
+            res.render("index", {title: "Home", time: new Date});
             break;
         case("/about"):
-            res.render("about");
+            res.render("about", {title: "About"});
             break;
         // case("aboutme"):
         //     res.redirect("about")
         //     break;
         case("/blogs/create"):
-            res.render("create")
+            res.render("create", {title: "Create a new Blog"})
         default:
-            res.status(404).render("404");
+            res.status(404).render("404", {title: "404"});
     }
 })
 
