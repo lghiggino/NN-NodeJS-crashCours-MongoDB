@@ -25,5 +25,18 @@ app.get("aboutme", (req, res) => {
 
 //404 page
 app.use((req, res) => {
-    res.status(404).sendFile("./views/404.html", {root: __dirname});
+    switch(req.url){
+        case("/"):
+            res.sendFile("./views/index.html", {root: __dirname})
+            break;
+        case("/about"):
+            res.sendFile("./views/about.html", {root: __dirname});
+            break;
+        case("aboutme"):
+            res.redirect("/about")
+            break;
+        default:
+            res.status(404).sendFile("./views/404.html", {root: __dirname});
+    }
+    //res.status(404).sendFile("./views/404.html", {root: __dirname});
 })
