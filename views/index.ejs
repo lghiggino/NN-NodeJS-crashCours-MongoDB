@@ -9,23 +9,23 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <!-- NAV.EJS -->
+    <!-- calling partials NAV.EJS -->
     <%- include("./partials/nav.ejs") %>
 
     <section class="blogs content">
         <h2>All Blogs</h2>
-        <% if(blogs.length > 0) { %>
-            <% blogs.forEach (blog => { %>
-                <article>
-                    <h3 class="title"> <%= blog.title %></h3>
-                    <h5 class="date"> <%= time %></h5>
-                    <p class="blog-snippet"><%= blog.snippet %></p>
-                </article>
+        <!-- calling the EJS blogs, and displaying the information -->
+        <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog => {  %>
+                <h3 class="blog-title"> <%= blog.title %> </h3>
+                <p class="blog-snippet"> <%= blog.snippet %></p>
             <% }) %>
         <% } else { %>
-            <p> There are no blogs to display... </p>
+            <p> There are no blog posts to display</p>
         <% } %>
-        
     </section>
+
+    <!-- calling the FOOTER.EJS partial -->
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>

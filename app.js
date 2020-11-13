@@ -42,23 +42,23 @@ app.get("/", (req, res) => {
 app.use( (req, res) => {
     switch(req.url){
         case("/"):
-        const blogs = [
-            {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi..."},
-            {title: "Mario finds stars", snippet: "First of all, start your console..."},
-            {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
-        ];
-            res.render("index", {title: "Home", time: new Date, blogs});
+            //passing variables into to be rendered (additional title and others)
+            const blogs = [
+                {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi..."},
+                {title: "Mario finds stars", snippet: "First of all, start your console..."},
+                {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
+            ];
+            //calling the render function with aditional variables
+            res.render("index", {title: "Home", blogs})
             break;
         case("/about"):
-            res.render("about", {title: "About"});
+            res.render("about" , {title: "About"})
             break;
-        // case("aboutme"):
-        //     res.redirect("about")
-        //     break;
         case("/blogs/create"):
-            res.render("create", {title: "Create a new Blog"})
+            res.render("create", {title: "Create e a New blogpost"});
+            break;
         default:
-            res.status(404).render("404", {title: "404"});
+            res.status(404).render("404", {title: "404"})
     }
 })
 
