@@ -1,0 +1,8 @@
+
+img{
+    display: block;
+    float:left; 
+    height: 40px;
+    width: auto;
+    margin: 0 2em;
+}

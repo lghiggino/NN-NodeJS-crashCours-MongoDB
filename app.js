@@ -83,8 +83,8 @@ app.use(morgan("dev"));
 app.get("/", (req, res) => {
     const blogs = [
         {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi...", image: "/imgs/200px-Yoshi.png"},
-        {title: "Mario finds stars", snippet: "First of all, start your console..." },
-        {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
+        {title: "Mario finds stars", snippet: "First of all, start your console...", image: "/imgs/mario.jpg" },
+        {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru...", image: "/imgs/Bowser.webp"}
     ];
     res.render("index", {title: "Home", blogs})
 })
