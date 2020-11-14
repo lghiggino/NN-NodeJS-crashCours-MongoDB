@@ -1,4 +1,6 @@
 const express = require("express");
+//morgan - middle logger
+const morgan = require("morgan");
 
 //express app
 const app = express();
@@ -63,19 +65,25 @@ app.get("/", (req, res) => {
 // })
 
 //CREATE Custom Middleware
-app.use( (req, res, next) => {
-    console.log("new request made");
-    console.log(`host: ${req.hostname}`);
-    console.log(`path: ${req.path}`);
-    console.log(`method: ${req.method}`);
-    next();
-});
+// app.use( (req, res, next) => {
+//     console.log("new request made");
+//     console.log(`host: ${req.hostname}`);
+//     console.log(`path: ${req.path}`);
+//     console.log(`method: ${req.method}`);
+//     next();
+// });
+
+// middleware $ statics files (css, imgs)
+app.use(express.static("public"))
+
+//calling morgan 
+app.use(morgan("dev"));
 
 //using app.get to render files from EXpress+EJS
 app.get("/", (req, res) => {
     const blogs = [
-        {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi..."},
-        {title: "Mario finds stars", snippet: "First of all, start your console..."},
+        {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi...", image: "/imgs/200px-Yoshi.png"},
+        {title: "Mario finds stars", snippet: "First of all, start your console..." },
         {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru..."}
     ];
     res.render("index", {title: "Home", blogs})

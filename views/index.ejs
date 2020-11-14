@@ -11,6 +11,7 @@
         <!-- calling the EJS blogs, and displaying the information -->
         <% if (blogs.length > 0) { %>
             <% blogs.forEach(blog => {  %>
+                <img src=<%= blog.image %> alt=""> 
                 <h3 class="blog-title"> <%= blog.title %> </h3>
                 <p class="blog-snippet"> <%= blog.snippet %></p>
             <% }) %>
