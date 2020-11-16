@@ -8,3 +8,7 @@ const blogSchema = new Schema({
     body: { type: String, required: true },
     date: { type: Date, default: Date.now }
 }, {timestamps: true});
+
+const Blog = mongoose.model("Blog", blogSchema)
+
+module.exports = Blog;

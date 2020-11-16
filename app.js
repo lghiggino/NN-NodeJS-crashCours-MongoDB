@@ -3,6 +3,9 @@ const express = require("express");
 const morgan = require("morgan");
 //mongoose - mongoDB facilitator
 const mongoose = require("mongoose");
+//Import the blog model created on blog.js
+const Blog = require("./models/blog");
+
 
 //express app
 const app = express();
@@ -85,6 +88,43 @@ app.use(express.static("public"));
 
 //calling morgan 
 app.use(morgan("dev"));
+
+//mongoose and mongoDB sandbox routes
+app.get("/add-blog", (req, res) => {
+    const blog = new Blog({
+        title: "hello world 2",
+        snippet: "hello world, hello!",
+        body: "this is a string containing multiple characters with the intention to create a bodied and longer block of text. At least longer then the snippet"
+    });
+    blog.save()
+        .then( (result) => {
+            res.send(result)
+        }).catch( (err) => {
+            console.log(err)
+        })
+})
+
+//retrieve all files from mongoDB
+app.get("/all-blogs", (req, res) => {
+    Blog.find()
+        .then( (result) => {
+            res.send(result);
+        })
+        .catch( (error) => {
+            console.log(error);
+        })
+})
+
+//retrive a single blog document from mongoDB
+app.get("/single-blog", (req, res) => {
+    Blog.findById("5fb2701467edd1136b069aac")
+        .then( (result) => {
+            res.send(result);
+        })
+        .catch( (error) => {
+            console.log(error);
+        })
+})
 
 //using app.get to render files from EXpress+EJS
 app.get("/", (req, res) => {
