@@ -73,8 +73,8 @@ app.get("/", (req, res) => {
 //     next();
 // });
 
-// middleware $ statics files (css, imgs)
-app.use(express.static("public"))
+// middleware & statics files (css, imgs)
+app.use(express.static("public"));
 
 //calling morgan 
 app.use(morgan("dev"));
