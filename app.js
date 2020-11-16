@@ -1,9 +1,14 @@
 const express = require("express");
-//morgan - middle logger
+//morgan - middleware logger
 const morgan = require("morgan");
+//mongoose - mongoDB facilitator
+const mongoose = require("mongoose");
 
 //express app
 const app = express();
+
+//connecting to mongoDB
+const dbURI = "mongodb+srv://lghiggino:NetNinja2020@nn-nodetuts.wlwvi.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
 //register the view engine
 app.set("view engine", "ejs");
