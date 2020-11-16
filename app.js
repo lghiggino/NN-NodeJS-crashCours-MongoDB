@@ -8,14 +8,16 @@ const mongoose = require("mongoose");
 const app = express();
 
 //connecting to mongoDB
-const dbURI = "mongodb+srv://lghiggino:NetNinja2020@nn-nodetuts.wlwvi.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const dbURI = "mongodb+srv://lghiggino:NetNinja2020@nn-nodetuts.wlwvi.mongodb.net/NN-NodeTuts?retryWrites=true&w=majority"
+mongoose.connect(dbURI , { useNewUrlParser: true, useUnifiedTopology: true})
+    //then listen for requests only after the connection between the DB is complete
+    .then( (result) => app.listen(3000))
+    .catch( (error) => { console.log(error)})
 
 //register the view engine
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-//listen for requests
-app.listen(3000);
 
 //responding the get requests - vanilla express here
 // app.get("/", (req, res) => {
