@@ -89,13 +89,8 @@ app.use(express.static("public"));
 //calling morgan 
 app.use(morgan("dev"));
 
-//mongoose and mongoDB sandbox routes
-app.get("/add-blog", (req, res) => {
-    const blog = new Blog({
-        title: "hello world 2",
-        snippet: "hello world, hello!",
-        body: "this is a string containing multiple characters with the intention to create a bodied and longer block of text. At least longer then the snippet"
-    });
+// //mongoose and mongoDB sandbox routes
+/* app.get("/add-blog", (req, res) => {
     blog.save()
         .then( (result) => {
             res.send(result)
@@ -103,7 +98,6 @@ app.get("/add-blog", (req, res) => {
             console.log(err)
         })
 })
-
 //retrieve all files from mongoDB
 app.get("/all-blogs", (req, res) => {
     Blog.find()
@@ -124,21 +118,25 @@ app.get("/single-blog", (req, res) => {
         .catch( (error) => {
             console.log(error);
         })
-})
+}) */
 
 //using app.get to render files from EXpress+EJS
 app.get("/", (req, res) => {
-    const blogs = [
-        {title: "Yoshi finds eggs", snippet: "Right at the begining, mario must jump on yoshi...", image: "/imgs/200px-Yoshi.png"},
-        {title: "Mario finds stars", snippet: "First of all, start your console...", image: "/imgs/mario.jpg" },
-        {title: "How to defeat Bowser", snippet: "get to the castle, find your way thru...", image: "/imgs/Bowser.webp"}
-    ];
-    res.render("index", {title: "Home", blogs})
+    res.redirect("/blogs");
 })
 
 app.get("/about", (req, res) => {
     res.render("about" , {title: "About"})
 })
+
+// blog routes
+app.get("/blogs", (req, res) => {
+    Blog.find().sort({createdAt: -1})
+        .then( result => {
+            res.render("index", {title: "All Blogs", blogs: result})
+        })
+        .catch( error => console.log(error))
+});
 
 app.get("/blogs/create", (req, res) => {
     res.render("create", {title: "Create e a New blogpost"});
