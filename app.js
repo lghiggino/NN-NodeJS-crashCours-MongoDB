@@ -6,9 +6,7 @@ const mongoose = require("mongoose");
 //Import the blog model created on blog.js
 const Blog = require("./models/blog");
 // Import the secret dbURI
-const secret = require("./secrets/secret")
-console.log(typeof secret, secret)
-
+const secret = require("./secrets/secret");
 
 //express app
 const app = express();
