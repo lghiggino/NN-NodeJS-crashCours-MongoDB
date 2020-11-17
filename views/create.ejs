@@ -7,13 +7,15 @@
     <%- include("./partials/nav.ejs") %>
 
     <section class="create-blog content">
-        <form action="">
+        <form action="/blogs" method="POST">
             <label for="title">Blog post title:</label>
-            <input type="text" id="title" required>
+            <input type="text" id="title" name="title" required>
             <label for="snippet">Blog post snippet:</label>
-            <input type="text" id="snippet" required>
+            <input type="text" id="snippet" name="snippet" required>
             <label for="body">Blog post body:</label>
-            <textarea id="body" required></textarea>
+            <textarea id="body" name ="body" required></textarea>
+            <label for="image"> External Image Link</label>
+            <input type="text" id="image" name="image">
             <button>Submit</button>
         </form>
     </section>

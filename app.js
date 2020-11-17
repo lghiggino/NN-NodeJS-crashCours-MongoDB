@@ -86,6 +86,9 @@ app.get("/", (req, res) => {
 // middleware & statics files (css, imgs)
 app.use(express.static("public"));
 
+//middleware to encode the form data into mongoDB ready
+app.use(express.urlencoded({extended: true}));
+
 //calling morgan 
 app.use(morgan("dev"));
 
@@ -137,6 +140,17 @@ app.get("/blogs", (req, res) => {
         })
         .catch( error => console.log(error))
 });
+
+app.post("/blogs", (req, res) => {
+    const blog = new Blog(req.body)
+    blog.save()
+        .then( (result) => {
+            res.redirect("/blogs")
+        })
+        .catch ( error => {
+            console.log(error)
+        })
+})
 
 app.get("/blogs/create", (req, res) => {
     res.render("create", {title: "Create e a New blogpost"});
