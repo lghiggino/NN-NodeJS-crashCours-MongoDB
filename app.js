@@ -5,13 +5,17 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 //Import the blog model created on blog.js
 const Blog = require("./models/blog");
+// Import the secret dbURI
+const secret = require("./secrets/secret")
+console.log(typeof secret, secret)
 
 
 //express app
 const app = express();
 
 //connecting to mongoDB
-const dbURI = "mongodb+srv://lghiggino:NetNinja2020@nn-nodetuts.wlwvi.mongodb.net/NN-NodeTuts?retryWrites=true&w=majority"
+const dbURI = secret;
+//const dbURI = secret
 mongoose.connect(dbURI , { useNewUrlParser: true, useUnifiedTopology: true})
     //then listen for requests only after the connection between the DB is complete
     .then( (result) => app.listen(3000))
