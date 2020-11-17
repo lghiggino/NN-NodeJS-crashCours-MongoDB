@@ -144,7 +144,8 @@ app.get("/blogs", (req, res) => {
 app.post("/blogs", (req, res) => {
     const blog = new Blog(req.body)
     blog.save()
-        .then( (result) => {
+        .then( result => {
+            console.log(`post result: ${result}`)
             res.redirect("/blogs")
         })
         .catch ( error => {
