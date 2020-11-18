@@ -7,11 +7,12 @@
     <%- include("./partials/nav.ejs") %>
 
     <section class="details content">
+        <img src="<%= blog.image %>" alt="">
         <h2><%= blog.title %></h2>
         <div class="content">
             <p><%= blog.body %></p>
         </div>
-        <a class="delete" doc-data=" <%= blog._id %> ">X delete</a>
+        <a class="delete" doc-data=" <%= blog._id %> ">X</a>
     </section>
 
     <!-- calling the FOOTER.EJS partial -->
