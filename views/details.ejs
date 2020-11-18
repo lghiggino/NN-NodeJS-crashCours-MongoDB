@@ -6,9 +6,12 @@
     <!-- NAV.EJS -->
     <%- include("./partials/nav.ejs") %>
 
-    <section class="blogs content">
+    <section class="details content">
         <h2><%= blog.title %></h2>
-        <p><%= blog.body %></p>
+        <div class="content">
+            <p><%= blog.body %></p>
+        </div>
+        <a class="delete" doc-data=" <%= blog._id %> ">X delete</a>
     </section>
 
     <!-- calling the FOOTER.EJS partial -->

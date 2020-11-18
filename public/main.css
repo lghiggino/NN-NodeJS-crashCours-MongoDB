@@ -90,3 +90,9 @@ img{
     width: auto;
     margin: 0 2em;
 }
+
+.delete{
+  display: block;
+  margin-top: 2rem;
+  color: red;
+}
