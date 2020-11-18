@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<!-- calling partial HEAD -->
+<%- include("./partials/head.ejs") %>
+<body>
+    <!-- NAV.EJS -->
+    <%- include("./partials/nav.ejs") %>
+
+    <section class="blogs content">
+        <h2><%= blog.title %></h2>
+        <p><%= blog.body %></p>
+    </section>
+
+    <!-- calling the FOOTER.EJS partial -->
+    <%- include("./partials/footer.ejs") %>
+    
+</body>
+</html>
