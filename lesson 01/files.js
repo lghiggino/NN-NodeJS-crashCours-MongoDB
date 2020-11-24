@@ -72,7 +72,7 @@ Will throw error if creates anexisting directory                                
 // }
 
 
-// fs.readFile("./docs/readme.txt", (error, data) => {
+// fs.readFile("../docs/readme.txt", (error, data) => {
 //     if(error){
 //         console.log(error)
 //     }else{
@@ -80,5 +80,5 @@ Will throw error if creates anexisting directory                                
 //     }
 // })
 
-module.exports = htmlContent;
+// module.exports = htmlContent;
 

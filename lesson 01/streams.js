@@ -1,7 +1,7 @@
-const fs = require("fs");
+// const fs = require("fs");
 // const htmlContent = require("./files")
 
-// /* ===== CREATE A READ STREAM - createReadStream("pathToFile/file.txt", {option object and parameters} )===== */
+/* ===== CREATE A READ STREAM - createReadStream("pathToFile/file.txt", {option object and parameters} )===== */
 // const readStream = fs.createReadStream("./docs/blog3.txt", {encoding: "utf-8"})
 
 // /* ====== CREATE A WRITE STREAM  - createWriteStream===== */
@@ -9,9 +9,9 @@ const fs = require("fs");
 
 // readStream.on("data", (chunk) => {
 //     console.log("---- NEW CHUNK ----");
-//     //console.log(chunk);
-//     // writeStream.write("\nNEW CHUNK\n");
-//     // writeStream.write(chunk);
+//     console.log(chunk);
+//     writeStream.write("\nNEW CHUNK\n");
+//     writeStream.write(chunk);
 // })
 
 
