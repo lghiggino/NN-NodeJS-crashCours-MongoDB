@@ -3,8 +3,6 @@ const fs = require("fs")
 
 const server = http.createServer( (req, res) => {
     console.log(req.method, req.url)
-    const path = req.url
-    console.log(path)
 
     switch (req.url){
         case("/"):
