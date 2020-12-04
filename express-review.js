@@ -10,16 +10,16 @@ app.use( (req, res) => {
         switch(req.url){
             case("/"):
                 // res.sendFile("./lesson 01/index.html", {root: __dirname});
-                res.render("review-index");
+                res.render("review-index", {title: "Home"});
                 break;
             case("/about"):
-                res.render("review-about");
+                res.render("review-about", {title: "about"});
                 break;
             case("/blogs/create"):
-                res.render("review-create");
+                res.render("review-create", {title: "create"});
                 break;
             default:
-                res.status(404).sendFile("./lesson 01/404.html", {root: __dirname});
+                res.status(404).render("review-404", {title: "404"});
         }
     }
 })
